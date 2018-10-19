@@ -1,4 +1,4 @@
-package com.oumuv.casclient.conf;
+package com.oumuv.cas.controller.conf;
 
 import org.jasig.cas.client.authentication.AuthenticationFilter;
 import org.jasig.cas.client.session.SingleSignOutFilter;
@@ -9,27 +9,28 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 /**
  * 描述：
  *
  * @Author 欧银锋
- * @Date 2018/10/12 11:05
+ * @Date 2018/10/19 16:41
  **/
-
 @Configuration
-public class CasConfingure {
+@Component
+public class CasAutoConfig {
 
     @Autowired
-    private CasAutoconfig casAutoconfig;
+    private CasConfig casConfig;
 
     private static boolean casEnabled  = true;
 
-    public CasConfingure() {}
+    public CasAutoConfig() {}
 
     @Bean
-    public CasAutoconfig getCasAutoconfig(){
-        return new CasAutoconfig();
+    public CasAutoConfig getCasAutoconfig(){
+        return new CasAutoConfig();
     }
 
     /**
@@ -53,7 +54,7 @@ public class CasConfingure {
         filterRegistration.setFilter(new SingleSignOutFilter());
         filterRegistration.setEnabled(casEnabled);
         filterRegistration.addUrlPatterns("/*" );
-        filterRegistration.addInitParameter("casServerUrlPrefix" , casAutoconfig .getCasServerUrlPrefix());
+        filterRegistration.addInitParameter("casServerUrlPrefix" , casConfig .getCasServerUrlPrefix());
         filterRegistration.setOrder(2);
         return filterRegistration ;
     }
@@ -67,12 +68,12 @@ public class CasConfingure {
         filterRegistration.setFilter(new AuthenticationFilter());
         filterRegistration.setEnabled(casEnabled);
         filterRegistration.addUrlPatterns("/*" );
-        filterRegistration.addInitParameter("casServerLoginUrl" , casAutoconfig .getCasServerLoginUrl());
-        filterRegistration.addInitParameter("casPassUrl" , casAutoconfig.getCasPassUrl());
-        filterRegistration.addInitParameter("serverName" , casAutoconfig.getServerName());
-        filterRegistration.addInitParameter("renew" , casAutoconfig.isRenew() ? "true" :"false" );
-        filterRegistration.addInitParameter("gateway" , casAutoconfig.isGateway() ? "true" :"false" );
-        filterRegistration.addInitParameter("casResource" , casAutoconfig.getResource());
+        filterRegistration.addInitParameter("casServerLoginUrl" , casConfig .getCasServerLoginUrl());
+        filterRegistration.addInitParameter("casPassUrl" , casConfig.getCasPassUrl());
+        filterRegistration.addInitParameter("serverName" , casConfig.getServerName());
+        filterRegistration.addInitParameter("renew" , casConfig.isRenew() ? "true" :"false" );
+        filterRegistration.addInitParameter("gateway" , casConfig.isGateway() ? "true" :"false" );
+        filterRegistration.addInitParameter("casResource" , casConfig.getResource());
         filterRegistration.setOrder(3);
         return filterRegistration ;
     }
@@ -87,11 +88,11 @@ public class CasConfingure {
 //        filterRegistration.setFilter(uboxCasProxyReceivingTicketValidationFilter );
         filterRegistration.setEnabled(casEnabled);
         filterRegistration.addUrlPatterns("/*" );
-        filterRegistration.addInitParameter("casServerUrlPrefix" , casAutoconfig .getCasServerUrlPrefix());
-        filterRegistration.addInitParameter("serverName" , casAutoconfig.getServerName());
-        filterRegistration.addInitParameter("useSession" , casAutoconfig.isUseSession() ? "true" :"false" );
-        filterRegistration.addInitParameter("exceptionOnValidationFailure" , casAutoconfig.isExceptionOnValidationFailure() ? "true":"false" );
-        filterRegistration.addInitParameter("redirectAfterValidation" , casAutoconfig .isRedirectAfterValidation() ? "true":"false" );
+        filterRegistration.addInitParameter("casServerUrlPrefix" , casConfig .getCasServerUrlPrefix());
+        filterRegistration.addInitParameter("serverName" , casConfig.getServerName());
+        filterRegistration.addInitParameter("useSession" , casConfig.isUseSession() ? "true" :"false" );
+        filterRegistration.addInitParameter("exceptionOnValidationFailure" , casConfig.isExceptionOnValidationFailure() ? "true":"false" );
+        filterRegistration.addInitParameter("redirectAfterValidation" , casConfig .isRedirectAfterValidation() ? "true":"false" );
         filterRegistration.setOrder(4);
         return filterRegistration ;
     }
@@ -111,6 +112,4 @@ public class CasConfingure {
         return filterRegistration ;
     }
 
-
 }
-
