@@ -1,6 +1,6 @@
 package com.oumuv.cas.filter;
 
-import com.oumuv.cas.controller.conf.CASConfig;
+import com.oumuv.cas.conf.CASConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.*;

@@ -1,4 +1,4 @@
-package com.oumuv.cas.controller.util;
+package com.oumuv.cas.util;
 
 import org.jasig.cas.client.authentication.UrlPatternMatcherStrategy;
 

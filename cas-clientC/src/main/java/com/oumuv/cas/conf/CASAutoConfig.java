@@ -1,6 +1,5 @@
-package com.oumuv.cas.controller.conf;
+package com.oumuv.cas.conf;
 
-import com.oumuv.cas.filter.MySingleSignOutFilter;
 import org.jasig.cas.client.authentication.AuthenticationFilter;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.jasig.cas.client.session.SingleSignOutHttpSessionListener;
@@ -81,7 +80,7 @@ public class CASAutoConfig {
         initParameters.put("serverName", casConfig.getServerName());
 //        initParameters.put("ignorePattern", "/logout/success");
         //表示过滤所有
-        initParameters.put("ignoreUrlPatternType", "com.oumuv.cas.controller.util.SimpleUrlPatternMatcherStrategy");
+        initParameters.put("ignoreUrlPatternType", "SimpleUrlPatternMatcherStrategy");
 
         registration.setInitParameters(initParameters);
         // 设定加载的顺序

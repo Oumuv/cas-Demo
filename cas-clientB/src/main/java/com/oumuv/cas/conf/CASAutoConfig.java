@@ -1,4 +1,4 @@
-package com.oumuv.cas.controller.conf;
+package com.oumuv.cas.conf;
 
 import org.springframework.context.annotation.Configuration;
 

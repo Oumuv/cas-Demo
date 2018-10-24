@@ -1,6 +1,6 @@
 package com.oumuv.cas.controller;
 
-import com.oumuv.cas.controller.conf.CASConfig;
+import com.oumuv.cas.conf.CASConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
