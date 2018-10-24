@@ -21,6 +21,9 @@ public class CASConfig {
     private String clientHostUrl;
     private String serverLogoutUrl;
     private String validationType;
+    private String serverName;
+    private String clientLogoutUrl;
+
 
     public String getServerUrlPrefix() {
         return serverUrlPrefix;
@@ -60,5 +63,22 @@ public class CASConfig {
 
     public void setValidationType(String validationType) {
         this.validationType = validationType;
+
+    }
+
+    public String getServerName() {
+        return serverName;
+    }
+
+    public void setServerName(String serverName) {
+        this.serverName = serverName;
+    }
+
+    public String getClientLogoutUrl() {
+        return clientLogoutUrl;
+    }
+
+    public void setClientLogoutUrl(String clientLogoutUrl) {
+        this.clientLogoutUrl = clientLogoutUrl;
     }
 }
