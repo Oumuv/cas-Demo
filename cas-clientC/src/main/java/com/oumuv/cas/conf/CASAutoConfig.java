@@ -79,8 +79,8 @@ public class CASAutoConfig {
         initParameters.put("casServerLoginUrl", casConfig.getServerUrlPrefix());
         initParameters.put("serverName", casConfig.getServerName());
 //        initParameters.put("ignorePattern", "/logout/success");
-        //表示过滤所有
-        initParameters.put("ignoreUrlPatternType", "SimpleUrlPatternMatcherStrategy");
+        //表示过滤所有，SimpleUrlPatternMatcherStrategy过滤规则类
+        initParameters.put("ignoreUrlPatternType", "com.oumuv.cas.filter.SimpleUrlPatternMatcherStrategy");
 
         registration.setInitParameters(initParameters);
         // 设定加载的顺序

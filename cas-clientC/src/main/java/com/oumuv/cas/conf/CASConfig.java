@@ -63,7 +63,6 @@ public class CASConfig {
 
     public void setValidationType(String validationType) {
         this.validationType = validationType;
-
     }
 
     public String getServerName() {
