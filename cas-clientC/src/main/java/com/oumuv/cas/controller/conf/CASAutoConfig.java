@@ -28,7 +28,8 @@ public class CASAutoConfig {
     @Autowired
     private CASConfig casConfig;
     /**
-     * 登录过滤器
+     * 登出过滤器
+     * （这个过滤器不知道有什么作用）
      * @return
      */
     @Bean
@@ -36,7 +37,7 @@ public class CASAutoConfig {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new SingleSignOutFilter());
         // 设定匹配的路径
-        registration.addUrlPatterns("/*");
+        registration.addUrlPatterns("/logout");
         Map<String,String> initParameters = new HashMap<String, String>();
         initParameters.put("casServerUrlPrefix", casConfig.getServerUrlPrefix());
         registration.setInitParameters(initParameters);
@@ -46,7 +47,7 @@ public class CASAutoConfig {
     }
 
     /**
-     * 过滤验证器
+     * ticke验证器
      * @return
      */
     @Bean
@@ -66,7 +67,7 @@ public class CASAutoConfig {
     }
 
     /**
-     * 授权过滤器
+     * 授权过滤器，用于登录
      * @return
      */
     @Bean
@@ -78,7 +79,7 @@ public class CASAutoConfig {
         Map<String,String>  initParameters = new HashMap<String, String>();
         initParameters.put("casServerLoginUrl", casConfig.getServerUrlPrefix());
         initParameters.put("serverName", casConfig.getServerName());
-        initParameters.put("ignorePattern", ".*");
+//        initParameters.put("ignorePattern", "/logout/success");
         //表示过滤所有
         initParameters.put("ignoreUrlPatternType", "com.oumuv.cas.controller.util.SimpleUrlPatternMatcherStrategy");
 

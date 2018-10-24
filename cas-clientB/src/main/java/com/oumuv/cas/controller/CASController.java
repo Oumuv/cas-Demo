@@ -1,7 +1,6 @@
 package com.oumuv.cas.controller;
 
-import com.oumuv.cas.controller.conf.CASConfig;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +16,12 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CASController {
 
-    @Autowired
-    private CASConfig casConfig;
+    @Value("${casClientLogoutUrl}")
+    private String clientLogoutUrl;
 
     @RequestMapping("index")
     public String index(ModelMap map) {
-        map.addAttribute("name", "clien C");
+        map.addAttribute("name", "clien B");
         return "index";
     }
 
@@ -34,17 +33,13 @@ public class CASController {
     @RequestMapping("logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        //cas默认的退出方式，成功后跳转到cas退出成功页面
-//        return "redirect:"+casConfig.getServerLogoutUrl();
-
         //使用cas退出成功后,跳转到http://cas.client1.com:9002/logout/success
-        return "redirect:"+casConfig.getClientLogoutUrl();
+        return "redirect:" + clientLogoutUrl;
 
     }
     @RequestMapping("logout/success")
     public String logoutsuccess(HttpSession session) {
-        session.invalidate();
-        //cas默认的退出方式
+        session.invalidate();//销毁session
         return "logoutsuccess";
     }
 }

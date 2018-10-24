@@ -21,9 +21,9 @@ public class SimpleUrlPatternMatcherStrategy implements UrlPatternMatcherStrateg
 	 */
 	@Override
 	public boolean matches(String url) {
-		//http://yellowcong.com:8080/cas-client-maven/user/loginOut/success
+		//http://yellowcong.com:8080/cas-client-maven/user/logout/success
 		//当含有loginout的字段，就可以不用登录了
-		return url.contains("/loginOut/success");
+		return url.contains("/logout/success");
 	}
 
 	/**
