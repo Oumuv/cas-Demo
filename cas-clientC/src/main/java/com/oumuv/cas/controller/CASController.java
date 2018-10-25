@@ -37,7 +37,7 @@ public class CASController {
         //cas默认的退出方式，成功后跳转到cas退出成功页面
 //        return "redirect:"+casConfig.getServerLogoutUrl();
 
-        //使用cas退出成功后,跳转到http://cas.client1.com:9002/logout/success
+        //使用cas退出成功后,跳转到http://cas.client1.com:9003/logout/success
         return "redirect:"+casConfig.getClientLogoutUrl();
 
     }
