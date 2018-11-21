@@ -10,14 +10,14 @@ import javax.servlet.http.HttpSession;
 /**
  * 描述：
  *
- * @Author 欧银锋
+ * @Author Oumuv
  * @Date 2018/10/19 12:15
  **/
 @Controller
 public class CASController {
 
     @Value("${casClientLogoutUrl}")
-    private String clientLogoutUrl;
+    private String clientLogoutUrl;//http://cas.server.com:8443/cas/logout?service=http://cas.client1.com:9002/logout/success
 
     @RequestMapping("index")
     public String index(ModelMap map) {
@@ -32,14 +32,13 @@ public class CASController {
 
     @RequestMapping("logout")
     public String logout(HttpSession session) {
-        session.invalidate();
+        session.invalidate();//销毁session
         //使用cas退出成功后,跳转到http://cas.client1.com:9002/logout/success
         return "redirect:" + clientLogoutUrl;
-
     }
+
     @RequestMapping("logout/success")
     public String logoutsuccess(HttpSession session) {
-        session.invalidate();//销毁session
         return "logoutsuccess";
     }
 }

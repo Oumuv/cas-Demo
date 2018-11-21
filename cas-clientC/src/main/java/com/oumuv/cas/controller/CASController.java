@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * 描述：
  *
- * @Author 欧银锋
+ * @Author Oumuv
  * @Date 2018/10/19 12:15
  **/
 @Controller
@@ -34,17 +34,12 @@ public class CASController {
     @RequestMapping("logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        //cas默认的退出方式，成功后跳转到cas退出成功页面
-//        return "redirect:"+casConfig.getServerLogoutUrl();
-
         //使用cas退出成功后,跳转到http://cas.client1.com:9003/logout/success
         return "redirect:"+casConfig.getClientLogoutUrl();
 
     }
     @RequestMapping("logout/success")
     public String logoutsuccess(HttpSession session) {
-        session.invalidate();
-        //cas默认的退出方式
         return "logoutsuccess";
     }
 }

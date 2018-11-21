@@ -43,6 +43,7 @@
             <version>1.2.17</version>
         </dependency>
 
+        <!--cas客户端-->
         <dependency>
             <groupId>org.jasig.cas.client</groupId>
             <artifactId>cas-client-core</artifactId>
@@ -71,13 +72,11 @@
                 <configuration>
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <!--端口-->
                             <port>9001</port>
                             <maxIdleTime>60000</maxIdleTime>
                         </connector>
                     </connectors>
-                    <!--<httpConnector>-->
-                        <!--<port>9001</port>-->
-                    <!--</httpConnector>-->
                 </configuration>
             </plugin>
         </plugins>

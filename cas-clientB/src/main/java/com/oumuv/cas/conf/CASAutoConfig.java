@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 描述：
  *
- * @Author 欧银锋
+ * @Author Oumuv
  * @Date 2018/10/23 16:59
  **/
 @Configuration
@@ -37,8 +37,8 @@ public class CASAutoConfig {
         Map<String,String> initParameters = new HashMap<String, String>();
         initParameters.put("casServerLoginUrl", serverUrlPrefix);
         initParameters.put("serverName", clientHostUrl);
-        //忽略的url
-        initParameters.put("ignorePattern", "/logout/success");
+        //忽略的url，"|"分隔多个url
+        initParameters.put("ignorePattern", "/logout/success|/index");
 
         registration.setInitParameters(initParameters);
         // 设定加载的顺序

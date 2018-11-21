@@ -1,20 +1,13 @@
-package com.oumuv.cas.filter;
+package com.oumuv.cas.utils;
 
-import com.oumuv.cas.conf.CASConfig;
 import org.jasig.cas.client.authentication.UrlPatternMatcherStrategy;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 /**
  * 描述：
- *
- * @Author 欧银锋
+ *      url匹配策略
+ * @Author Oumuv
  * @Date 2018/10/24 11:01
  **/
 @WebFilter(urlPatterns = "/*")
@@ -32,7 +25,7 @@ public class SimpleUrlPatternMatcherStrategy implements UrlPatternMatcherStrateg
     }
 
     /**
-     * 正在表达式过滤方法
+     * 正则表达式过滤方法
      * @param s
      */
     @Override

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * 描述：
  *
- * @Author 欧银锋
+ * @Author Oumuv
  * @Date 2018/10/23 16:41
  **/
 @PropertySource("cas.properties")

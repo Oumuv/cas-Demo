@@ -16,6 +16,5 @@ import java.util.Map;
 public class CasApplication {
     public static void main(String[] args) {
         SpringApplication.run(CasApplication.class, args);
-
     }
 }
