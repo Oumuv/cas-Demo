@@ -6,3 +6,6 @@
 - CAS-server集成jdbc登录验证
 - 搭建基于springMVC的cas-client（clientA）
 - 搭建基于springboot的cas-client（clienB & clientC）
+
+## 如何使用
+相关搭建步骤和使用方法见博客专栏：[CSDN](https://blog.csdn.net/oumuv/category_9281614.html)
